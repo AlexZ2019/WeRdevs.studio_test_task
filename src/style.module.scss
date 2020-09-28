@@ -1,0 +1,68 @@
+@font-face {
+  src: url("./Files/Fonts/Rubik-Light.ttf");
+  font-family: "Rubik", sans-serif;
+}
+body {
+  padding: 3% 10%;
+  margin: 0;
+  font-family: "Rubik", serif;
+}
+header {
+  display: flex;
+}
+
+.logo {
+  flex-grow: 2;
+}
+.logo img {
+  width: 150px;
+}
+.home, .about-us {
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.about-us {
+  margin-left: 3%;
+}
+.about-us .round {
+  border-radius: 50%;
+  border: 1px solid #fdd000;
+  background-color: #fdd000;
+  height: 7px;
+  width: 7px;
+  margin-left: 45%;
+}
+
+.content {
+  margin: 10%;
+  text-align: justify;
+  h1 {
+    padding: 0 0 5% 0;
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+
+.content p {
+  color: #888888;
+}
+
+@media screen and (max-width: 531px){
+  header {
+    display: block;
+  }
+  .about-us {
+    margin-left: 0;
+    display: flex;
+  }
+  .about-us .round {
+    margin-left: 7px;
+    margin-top: 7px;
+  }
+  .content h1 {
+    font-size: 20px;
+  }
+}

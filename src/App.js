@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import style from "./style.module.css";
+import Navigation from "./Components/Navigation/Navigation";
+import Content from "./Components/Content/Content";
+import Calendar from "./Components/Calendar/Calendar";
+import {Route} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation/>
+      <Route path="/" render={() => <Content/>}/>
+      <Route path="/calendar" render={() => <Calendar/>}/>
     </div>
   );
 }
