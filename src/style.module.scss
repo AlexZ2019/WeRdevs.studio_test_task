@@ -3,11 +3,11 @@
   font-family: "Rubik", sans-serif;
 }
 body {
-  padding: 3% 10%;
   margin: 0;
   font-family: "Rubik", serif;
 }
 header {
+  padding: 3% 10%;
   display: flex;
 }
 
@@ -37,7 +37,7 @@ header {
 }
 
 .content {
-  margin: 10%;
+  padding: 0 20%;
   text-align: justify;
   h1 {
     padding: 0 0 5% 0;
@@ -50,6 +50,51 @@ header {
   color: #888888;
 }
 
+.calendar-content {
+  background-image: url("Files/images/Artboard_1_copy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  min-height: 200px;
+}
+
+.calendar-content .choose-meeting {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #fbfbfb;
+  font-weight: bold;
+}
+.calendar-content .choose-meeting marker {
+  color: #ebc206;
+}
+
+.calendar {
+  width: 200px;
+  color: #fbfbfb;
+}
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  color: #fbfbfb;
+  font-weight: bold;
+}
+
+.day {
+  width: 27px;
+}
+.current-day {
+  background-color: #fdd000;
+  color: #272624;
+  width: 27px;
+}
 @media screen and (max-width: 531px){
   header {
     display: block;
@@ -66,3 +111,4 @@ header {
     font-size: 20px;
   }
 }
+
