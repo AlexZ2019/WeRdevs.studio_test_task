@@ -57,10 +57,8 @@ header {
   height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
-  text-align: center;
   min-height: 200px;
 }
 
@@ -70,6 +68,7 @@ header {
   text-transform: uppercase;
   color: #fbfbfb;
   font-weight: bold;
+  margin-right: 10%;
 }
 .calendar-content .choose-meeting marker {
   color: #ebc206;
@@ -78,6 +77,8 @@ header {
 .calendar {
   width: 200px;
   color: #fbfbfb;
+  margin-right: 10%;
+  text-align: center;
 }
 .days {
   display: flex;
@@ -88,12 +89,11 @@ header {
 }
 
 .day {
-  width: 27px;
+  width: 14%;
 }
 .current-day {
   background-color: #fdd000;
   color: #272624;
-  width: 27px;
 }
 @media screen and (max-width: 531px){
   header {
