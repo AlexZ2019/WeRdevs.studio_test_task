@@ -58,7 +58,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
+  width: 100vw;
   min-height: 200px;
 }
 
@@ -68,7 +68,7 @@ header {
   text-transform: uppercase;
   color: #fbfbfb;
   font-weight: bold;
-  margin-right: 10%;
+  margin-right: 15%;
 }
 .calendar-content .choose-meeting marker {
   color: #ebc206;
@@ -94,6 +94,40 @@ header {
 .current-day {
   background-color: #fdd000;
   color: #272624;
+}
+.pop-up-notification {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  justify-content: center;
+  background: rgba(64, 67, 64, 0.6);
+  display: flex;
+  align-items: center;
+}
+.pop-up-notification-show {
+  display: none;
+}
+.pop-up-notification .form {
+  display: flex;
+  background-color: #fbfbfb;
+  height: auto;
+  padding: 5px;
+}
+.form input {
+  border: 2px solid #ebc206;
+  height: 20px;
+  margin: 0 5px;
+  padding: 5px;
+}
+.form p {
+  font-size: 11px;
+  font-weight: bold;
+  color: #888888;
+}
+.form .close {
+  height: 20px;
+  width: 20px;
+  background-color: #ebc206;
 }
 @media screen and (max-width: 531px){
   header {
