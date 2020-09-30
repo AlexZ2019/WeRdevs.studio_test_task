@@ -104,9 +104,7 @@ header {
   display: flex;
   align-items: center;
 }
-.pop-up-notification-show {
-  display: none;
-}
+
 .pop-up-notification .form {
   display: flex;
   background-color: #fbfbfb;
@@ -118,6 +116,8 @@ header {
   height: 20px;
   margin: 0 5px;
   padding: 5px;
+  color: rgba(64, 67, 64);
+  font-weight: bold;
 }
 .form p {
   font-size: 11px;
@@ -128,6 +128,30 @@ header {
   height: 20px;
   width: 20px;
   background-color: #ebc206;
+}
+.close .first-div {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 11px;
+  border: 1px solid black;
+  position: fixed;
+  margin-top: 8px;
+  margin-left: 3px;
+}
+.close .second-div {
+  -moz-transform: rotate(-45deg); /* Для Firefox */
+  -ms-transform: rotate(-45deg); /* Для IE */
+  -webkit-transform: rotate(-45deg); /* Для Safari, Chrome, iOS */
+  -o-transform: rotate(-45deg); /* Для Opera */
+  transform: rotate(-45deg);
+  width: 11px;
+  border: 1px solid black;
+  position: fixed;
+  margin-top: 8px;
+  margin-left: 3px;
 }
 @media screen and (max-width: 531px){
   header {

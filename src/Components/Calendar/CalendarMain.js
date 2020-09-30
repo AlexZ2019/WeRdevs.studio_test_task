@@ -12,6 +12,11 @@ class CalendarMain extends React.Component {
                 ? <PopUpWindow
                     isShownPopUpWindow={this.props.isShownPopUpWindow}
                     hidePopUpWindow={this.props.hidePopUpWindow}
+                    chosenMonth={this.props.chosenMonth}
+                    chosenWeekDay={this.props.chosenWeekDay}
+                    chosenDay={this.props.chosenDay}
+                    weekDays={this.props.weekDays}
+                    month={this.props.month}
                 />
                 : null}
         <div className={style["calendar-content"]}>
@@ -27,7 +32,12 @@ class CalendarMain extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        isShownPopUpWindow: state.CalendarReducer.isShownPopUpWindow
+        isShownPopUpWindow: state.CalendarReducer.isShownPopUpWindow,
+        chosenMonth: state.CalendarReducer.chosenMonth,
+        chosenWeekDay: state.CalendarReducer.chosenWeekDay,
+        chosenDay: state.CalendarReducer.chosenDay,
+        weekDays: state.CalendarReducer.weekDays,
+        month: state.CalendarReducer.month
     }
 }
 

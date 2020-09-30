@@ -1,7 +1,13 @@
 import React from "react";
 import style from "../../style.module.css";
 import {connect} from "react-redux";
-import {hidePopUpWindow, setNextMonth, setPrevMonth, showPopUpWindow} from "../../Store/Reducers/CalendarReducer";
+import {
+    getChosenDate,
+    hidePopUpWindow,
+    setNextMonth,
+    setPrevMonth,
+    showPopUpWindow
+} from "../../Store/Reducers/CalendarReducer";
 
 class Calendar extends React.Component {
 
@@ -37,7 +43,14 @@ class Calendar extends React.Component {
         const showNextMonth = () => {
             this.props.setNextMonth(1);
         }
-        console.log(currentMonthDays)
+        let date = new Date();
+        date.setDate(15)
+        console.log(date.getMonth());
+        const showPopUpWindow = (day) => {
+            this.props.getChosenDate(day)
+            this.props.showPopUpWindow()
+        }
+
         return <div className={style.calendar}>
             <div>
                 <span onClick={showPrevMonth}>{"< "}</span>
@@ -49,7 +62,7 @@ class Calendar extends React.Component {
                 {prevLastDays.map(day => <div className={style.day}>{day}
                 </div>)}
                 {currentMonthDays.map(day => <div
-                    onClick={this.props.showPopUpWindow}
+                    onClick={() => showPopUpWindow(day)}
                     className={day === new Date().getDate()
                     && this.props.date.getMonth() === new Date().getMonth()
                     && this.props.date.getFullYear() === new Date().getFullYear()
@@ -74,4 +87,4 @@ let mapStateToProps = (state) => {
         isShownPopUpWindow: state.CalendarReducer.isShownPopUpWindow
     }
 }
-export default connect(mapStateToProps, {setPrevMonth, setNextMonth, showPopUpWindow})(Calendar);
+export default connect(mapStateToProps, {setPrevMonth, setNextMonth, showPopUpWindow, getChosenDate})(Calendar);

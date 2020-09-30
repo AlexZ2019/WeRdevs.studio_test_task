@@ -2,6 +2,7 @@ const SET_PREV_MONTH = "CalendarReducer/SET_PREV_MONTH";
 const SET_NEXT_MONTH = "CalendarReducer/SET_NEXT_MONTH";
 const SHOW_POP_UP_WINDOW = "CalendarReducer/SHOW_POP_UP_WINDOW";
 const HIDE_POP_UP_WINDOW = "CalendarReducer/HIDE_POP_UP_WINDOW";
+const GET_CHOSEN_DAY = "CalendarReducer/GET_CHOSEN_DAY";
 
 let InitialState = {
     month: [
@@ -28,6 +29,9 @@ let InitialState = {
         "S"
     ],
     date: new Date(),
+    chosenMonth: null,
+    chosenWeekDay: null,
+    chosenDay: null,
     isShownPopUpWindow: false
 
 }
@@ -50,6 +54,13 @@ const CalendarReducer = (state = InitialState, action) => {
         case HIDE_POP_UP_WINDOW:
             return {
                 ...state, isShownPopUpWindow: false
+            }
+        case GET_CHOSEN_DAY:
+            return {
+                ...state, chosenMonth: new Date(new Date().getFullYear(), new Date().getMonth(), action.chosenDay).getMonth(),
+                chosenWeekDay: new Date(new Date().getFullYear(), new Date().getMonth(), action.chosenDay).getDay(),
+                chosenDay: action.chosenDay
+
             }
         default:
             return state
@@ -82,4 +93,11 @@ export const hidePopUpWindow = () => {
         type: HIDE_POP_UP_WINDOW
     }
 }
+export const getChosenDate = (chosenDay) => {
+    return {
+        type: GET_CHOSEN_DAY,
+        chosenDay
+    }
+}
+
 export default CalendarReducer;
