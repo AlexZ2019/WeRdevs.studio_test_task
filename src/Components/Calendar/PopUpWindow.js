@@ -26,11 +26,11 @@ const PopUpWindow = (props) => {
                 <div className={style["first-div"]}></div>
                 <div className={style["second-div"]}></div>
             </div>
-            <div>
+            <div className={style.section}>
                 <p>Month</p>
                 <input type="text" value={props.month[chosenMonth]}/>
             </div>
-            <div>
+            <div className={style.section}>
                 <p>Day</p>
                 <input type="text" value={`${props.chosenDay}th ${weekDays[chosenWeekDay]}`}/>
             </div>

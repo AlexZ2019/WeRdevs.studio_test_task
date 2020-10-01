@@ -87,6 +87,11 @@ header {
   text-align: center;
 }
 
+.moth-year-name {
+  display: flex;
+  justify-content: center;
+}
+
 .days {
   display: flex;
   flex-wrap: wrap;
@@ -118,13 +123,17 @@ header {
   display: flex;
   background-color: #fbfbfb;
   height: auto;
-  padding: 5px;
+}
+
+.form .section {
+  margin-left: 20px;
+  margin-bottom: 15px;
 }
 
 .form input {
   border: 2px solid #ebc206;
   height: 20px;
-  margin: 0 5px;
+  width: 110px;
   padding: 5px;
   color: #404340;
   font-weight: bold;
@@ -140,6 +149,9 @@ header {
   height: 20px;
   width: 20px;
   background-color: #ebc206;
+  flex-grow: 2;
+  order: 2;
+  margin-left: auto;
 }
 
 .close .first-div {

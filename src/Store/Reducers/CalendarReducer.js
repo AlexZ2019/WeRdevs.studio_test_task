@@ -2,8 +2,9 @@ const SET_PREV_MONTH = "CalendarReducer/SET_PREV_MONTH";
 const SET_NEXT_MONTH = "CalendarReducer/SET_NEXT_MONTH";
 const SHOW_POP_UP_WINDOW = "CalendarReducer/SHOW_POP_UP_WINDOW";
 const HIDE_POP_UP_WINDOW = "CalendarReducer/HIDE_POP_UP_WINDOW";
-const GET_CHOSEN_DAY = "CalendarReducer/GET_CHOSEN_DAY";
-
+const GET_CHOSEN_CURRENT_MONTH_DAY = "CalendarReducer/GET_CHOSEN_DAY";
+const GET_CHOSEN_DAY_PREV_MONTH = "GET_CHOSEN_DAY_PREV_MONTH";
+const GET_CHOSEN_DAY_NEXT_MONTH = "GET_CHOSEN_DAY_NEXT_MONTH";
 let InitialState = {
     month: [
         "January",
@@ -36,7 +37,6 @@ let InitialState = {
 
 }
 
-
 const CalendarReducer = (state = InitialState, action) => {
     switch (action.type) {
         case SET_PREV_MONTH:
@@ -55,12 +55,23 @@ const CalendarReducer = (state = InitialState, action) => {
             return {
                 ...state, isShownPopUpWindow: false
             }
-        case GET_CHOSEN_DAY:
+        case GET_CHOSEN_CURRENT_MONTH_DAY:
             return {
-                ...state, chosenMonth: new Date(new Date().getFullYear(), new Date().getMonth(), action.chosenDay).getMonth(),
-                chosenWeekDay: new Date(new Date().getFullYear(), new Date().getMonth(), action.chosenDay).getDay(),
+                ...state, chosenMonth: new Date(state.date.getFullYear(), state.date.getMonth(), action.chosenDay).getMonth(),
+                chosenWeekDay: new Date(state.date.getFullYear(), state.date.getMonth(), action.chosenDay).getDay(),
                 chosenDay: action.chosenDay
-
+            }
+        case GET_CHOSEN_DAY_PREV_MONTH:
+            return {
+                ...state, chosenMonth: new Date(state.date.getFullYear(), state.date.getMonth() - 1, action.chosenDay).getMonth(),
+                chosenWeekDay: new Date(state.date.getFullYear(), state.date.getMonth() - 1, action.chosenDay).getDay(),
+                chosenDay: action.chosenDay
+            }
+        case GET_CHOSEN_DAY_NEXT_MONTH:
+            return {
+                ...state, chosenMonth: new Date(state.date.getFullYear(), state.date.getMonth() + 1, action.chosenDay).getMonth(),
+                chosenWeekDay: new Date(state.date.getFullYear(), state.date.getMonth() + 1, action.chosenDay).getDay(),
+                chosenDay: action.chosenDay
             }
         default:
             return state
@@ -95,7 +106,19 @@ export const hidePopUpWindow = () => {
 }
 export const getChosenDate = (chosenDay) => {
     return {
-        type: GET_CHOSEN_DAY,
+        type: GET_CHOSEN_CURRENT_MONTH_DAY,
+        chosenDay
+    }
+}
+export const getChosenDatePrevMonth = (chosenDay) => {
+    return {
+        type: GET_CHOSEN_DAY_PREV_MONTH,
+        chosenDay
+    }
+}
+export const getChosenDateNextMonth = (chosenDay) => {
+    return {
+        type: GET_CHOSEN_DAY_NEXT_MONTH,
         chosenDay
     }
 }
