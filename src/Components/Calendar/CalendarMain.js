@@ -22,9 +22,12 @@ class CalendarMain extends React.Component {
         <div className={style["calendar-content"]}>
             <div className={style["choose-meeting"]}>
                 <h1>choose the day <br/>for the <marker>meeting</marker></h1>
+                <p>We encourage you to book your
+                    <br/>appointment online.
+                    <br/>This will save you time.
+                </p>
             </div>
             <Calendar/>
-
         </div>
         </React.Fragment>
     }

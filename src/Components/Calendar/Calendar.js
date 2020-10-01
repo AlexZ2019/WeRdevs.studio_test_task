@@ -3,7 +3,6 @@ import style from "../../style.module.css";
 import {connect} from "react-redux";
 import {
     getChosenDate, getChosenDateNextMonth, getChosenDatePrevMonth,
-    hidePopUpWindow,
     setNextMonth,
     setPrevMonth,
     showPopUpWindow
@@ -43,9 +42,6 @@ class Calendar extends React.Component {
         const showNextMonth = () => {
             this.props.setNextMonth(1);
         }
-        let date = new Date();
-        date.setDate(15)
-        console.log(date.getMonth());
         const showPopUpWindowForCurrentMonth = (day) => {
             this.props.getChosenDate(day);
             this.props.showPopUpWindow();
@@ -58,36 +54,50 @@ class Calendar extends React.Component {
             this.props.getChosenDateNextMonth(day);
             this.props.showPopUpWindow();
         }
-        return <div className={style.calendar}>
-            <div className={style["moth-year-name"]}>
-                <div onClick={showPrevMonth}>{"<"}</div>
-                <div>{this.props.month[this.props.date.getMonth()] + " "}
-                    {this.props.date.getFullYear()}</div>
+        return <div className={style["calendar-wrapper"]}>
+            <div className={style.calendar}>
+                <div className={style["moth-year-name"]}>
+                    <div onClick={showPrevMonth} className={style["left-toggle"]}>
+                        <div className={style["show-prev-month-arrow-first"] + " " + style["month-toggle"]}></div>
+                        <div className={style["show-prev-month-arrow-second"] + " " + style["month-toggle"]}></div>
+                    </div>
+                    <div>
+                        {this.props.month[this.props.date.getMonth()] + " "}
+                        {this.props.date.getFullYear()}
+                    </div>
 
-                <div onClick={showNextMonth}>{">"}</div>
-            </div>
-            <div className={style.days}>
-                {prevLastDays.map(day => <div
-                    onClick={() => showPopUpWindowForPrevMonth(day)}
-                    className={style.day}>{day}
+                    <div onClick={showNextMonth} className={style["right-toggle"]}>
+                        <div className={style["show-next-month-arrow-first"] + " " + style["month-toggle"]}></div>
+                        <div className={style["show-next-month-arrow-second"] + " " + style["month-toggle"]}></div>
+                    </div>
+                </div>
+                <div className={style.line}></div>
+                <div className={style["calendar-items"]}>
+                    {prevLastDays.map(day => <div
+                        onClick={() => showPopUpWindowForPrevMonth(day)}
+                        className={style.day + " " + style["other-days"]}>{day}
                 </div>)}
-                {currentMonthDays.map(day => <div
-                    onClick={() => showPopUpWindowForCurrentMonth(day)}
-                    className={day === new Date().getDate()
-                    && this.props.date.getMonth() === new Date().getMonth()
-                    && this.props.date.getFullYear() === new Date().getFullYear()
-                        ? style["current-day"] + " " + style.day
-                        : style.day}>{day}</div>)}
-                {nextFirstDays.map(day => <div
-                    onClick={() => showPopUpWindowForNextMonth(day)}
-                    className={style.day}>
-                    {day}
-                </div>)}
-            </div>
-            <div className={style.days}>
-                {this.props.weekDays.map(day => <div key={day} className={style.day}>{day}</div>)}
+                    {currentMonthDays.map(day => <div
+                        onClick={() => showPopUpWindowForCurrentMonth(day)}
+                        className={day === new Date().getDate()
+                        && this.props.date.getMonth() === new Date().getMonth()
+                        && this.props.date.getFullYear() === new Date().getFullYear()
+                            ? style["current-day"] + " " + style.day
+                            : style.day}>{day}</div>)}
+                    {nextFirstDays.map(day => <div
+                        onClick={() => showPopUpWindowForNextMonth(day)}
+                        className={style.day + " " + style["other-days"]}>
+                        {day}
+                    </div>)}
+                </div>
+                <div className={style.line}></div>
+                <div className={style["calendar-items"]}>
+                    {this.props.weekDays.map(day => <div key={day} className={style.weekDay}>{day}</div>)}
+                </div>
+                <div className={style.line}></div>
             </div>
         </div>
+
     }
 }
 
@@ -99,4 +109,11 @@ let mapStateToProps = (state) => {
         isShownPopUpWindow: state.CalendarReducer.isShownPopUpWindow
     }
 }
-export default connect(mapStateToProps, {setPrevMonth, setNextMonth, showPopUpWindow, getChosenDate, getChosenDatePrevMonth, getChosenDateNextMonth})(Calendar);
+export default connect(mapStateToProps, {
+    setPrevMonth,
+    setNextMonth,
+    showPopUpWindow,
+    getChosenDate,
+    getChosenDatePrevMonth,
+    getChosenDateNextMonth
+})(Calendar);

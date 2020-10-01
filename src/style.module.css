@@ -1,20 +1,25 @@
-@charset "UTF-8";
 @font-face {
   src: url("./Files/Fonts/Rubik-Light.ttf");
   font-family: "Rubik", sans-serif;
 }
+.html {
+  font-family: "Rubik", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: "Rubik", serif;
 }
 
 header {
-  padding: 3% 10%;
+  padding: 30px 100px;
   display: flex;
+  position: fixed;
+  width: 100vw;
+  background-color: #fbfbfb;
 }
 
 .logo {
-  flex-grow: 2;
+  flex-grow: 1;
 }
 
 .logo img {
@@ -30,6 +35,7 @@ header {
 
 .about-us {
   margin-left: 3%;
+  margin-right: 18vw;
 }
 
 .about-us .round {
@@ -59,54 +65,139 @@ header {
   background-image: url("Files/images/Artboard_1_copy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 100vw;
-  min-height: 200px;
+  height: 100vh;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .calendar-content .choose-meeting {
   display: flex;
-  justify-content: center;
-  text-transform: uppercase;
+  flex-direction: column;
   color: #fbfbfb;
-  font-weight: bold;
-  margin-right: 15%;
+  text-align: right;
+  padding-right: 3%;
+}
+
+.calendar-content .choose-meeting p {
+  color: #b2b1b1;
+  font-size: 20px;
+  text-transform: none;
+  font-weight: normal;
 }
 
 .calendar-content .choose-meeting marker {
   color: #ebc206;
 }
 
+.calendar-wrapper {
+  width: 40%;
+  background-color: #272829;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .calendar {
-  width: 200px;
+  width: 70%;
   color: #fbfbfb;
-  margin-right: 10%;
   text-align: center;
 }
 
 .moth-year-name {
   display: flex;
-  justify-content: center;
 }
 
-.days {
+.month-toggle {
+  border: 1px solid #a3a3a4;
+  height: 10px;
+}
+
+.left-toggle {
+  margin-right: auto;
+}
+
+.show-prev-month-arrow-first {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: fixed;
+}
+
+.show-prev-month-arrow-second {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: fixed;
+  margin-top: 7px;
+}
+
+.right-toggle {
+  margin-left: auto;
+}
+
+.show-next-month-arrow-first {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: fixed;
+}
+
+.show-next-month-arrow-second {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: fixed;
+  margin-top: 7px;
+}
+
+.calendar-items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  color: #fbfbfb;
+  justify-content: center;
   font-weight: bold;
+  color: #fbfbfb;
 }
 
 .day {
-  width: 14%;
+  box-sizing: border-box;
+  width: 14.28%;
+  border: 1px solid transparent;
+  padding: 5px 0;
+}
+.day:hover {
+  border: 1px solid #888888;
+  cursor: pointer;
+}
+
+.other-days {
+  color: #525253;
+}
+
+.weekDay {
+  width: 14.28%;
 }
 
 .current-day {
   background-color: #fdd000;
   color: #272624;
+}
+
+.line {
+  width: 100%;
+  border-bottom: 1px solid #525253;
+  margin: 5px 0;
 }
 
 .pop-up-notification {
@@ -169,13 +260,9 @@ header {
 
 .close .second-div {
   -moz-transform: rotate(-45deg);
-  /* Для Firefox */
   -ms-transform: rotate(-45deg);
-  /* Для IE */
   -webkit-transform: rotate(-45deg);
-  /* Для Safari, Chrome, iOS */
   -o-transform: rotate(-45deg);
-  /* Для Opera */
   transform: rotate(-45deg);
   width: 11px;
   border: 1px solid black;
@@ -184,6 +271,22 @@ header {
   margin-left: 3px;
 }
 
+@media (max-width: 700px) {
+  body {
+    min-width: 320px;
+  }
+
+  .calendar-content {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .calendar-wrapper {
+    height: auto;
+    width: auto;
+    padding: 20px 0;
+  }
+}
 @media screen and (max-width: 531px) {
   header {
     display: block;
