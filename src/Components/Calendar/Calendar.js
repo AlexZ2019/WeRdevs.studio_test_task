@@ -65,7 +65,6 @@ class Calendar extends React.Component {
                         {this.props.month[this.props.date.getMonth()] + " "}
                         {this.props.date.getFullYear()}
                     </div>
-
                     <div onClick={showNextMonth} className={style["right-toggle"]}>
                         <div className={style["show-next-month-arrow-first"] + " " + style["month-toggle"]}></div>
                         <div className={style["show-next-month-arrow-second"] + " " + style["month-toggle"]}></div>
@@ -97,7 +96,6 @@ class Calendar extends React.Component {
                 <div className={style.line}></div>
             </div>
         </div>
-
     }
 }
 

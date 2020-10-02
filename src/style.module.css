@@ -11,10 +11,9 @@ body {
 }
 
 header {
-  padding: 30px 100px;
+  padding: 50px 100px 0 80px;
   display: flex;
-  position: fixed;
-  width: 100vw;
+  height: 100px;
   background-color: #fbfbfb;
 }
 
@@ -27,15 +26,14 @@ header {
 }
 
 .home, .about-us {
+  padding-top: 20px;
   font-size: 20px;
   text-transform: uppercase;
-  padding-top: 20px;
   font-weight: bold;
 }
 
 .about-us {
   margin-left: 3%;
-  margin-right: 18vw;
 }
 
 .about-us .round {
@@ -67,8 +65,8 @@ header {
   background-size: cover;
   display: flex;
   align-items: center;
+  height: calc(100vh - 150px);
   justify-content: flex-end;
-  height: 100vh;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -121,22 +119,23 @@ header {
 }
 
 .show-prev-month-arrow-first {
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-  position: fixed;
-}
-
-.show-prev-month-arrow-second {
+  margin-top: 13px;
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  position: fixed;
-  margin-top: 7px;
+  position: absolute;
+}
+
+.show-prev-month-arrow-second {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  margin-top: 6px;
 }
 
 .right-toggle {
@@ -149,17 +148,18 @@ header {
   -webkit-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  position: fixed;
+  position: absolute;
+  margin-top: 6px;
 }
 
 .show-next-month-arrow-second {
+  margin-top: 13px;
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
-  position: fixed;
-  margin-top: 7px;
+  position: absolute;
 }
 
 .calendar-items {
@@ -174,7 +174,7 @@ header {
   box-sizing: border-box;
   width: 14.28%;
   border: 1px solid transparent;
-  padding: 5px 0;
+  padding: 2% 0;
 }
 .day:hover {
   border: 1px solid #888888;
@@ -213,7 +213,6 @@ header {
 .pop-up-notification .form {
   display: flex;
   background-color: #fbfbfb;
-  height: auto;
 }
 
 .form .section {
@@ -253,7 +252,7 @@ header {
   transform: rotate(45deg);
   width: 11px;
   border: 1px solid black;
-  position: fixed;
+  position: absolute;
   margin-top: 8px;
   margin-left: 3px;
 }
@@ -266,7 +265,7 @@ header {
   transform: rotate(-45deg);
   width: 11px;
   border: 1px solid black;
-  position: fixed;
+  position: absolute;
   margin-top: 8px;
   margin-left: 3px;
 }
@@ -282,14 +281,20 @@ header {
   }
 
   .calendar-wrapper {
-    height: auto;
+    height: 300px;
     width: auto;
     padding: 20px 0;
+  }
+
+  .pop-up-notification {
+    height: 100vh;
+    position: absolute;
   }
 }
 @media screen and (max-width: 531px) {
   header {
     display: block;
+    height: 200px;
   }
 
   .about-us {
