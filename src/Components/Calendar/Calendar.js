@@ -20,12 +20,12 @@ class Calendar extends React.Component {
         let firstDayIndex = this.props.date.getDay();
 
         for (let i = firstDayIndex; i > 0; i--) {
-            prevLastDays.push(prevLastDay - i + 1)
+            prevLastDays.push(prevLastDay - i + 1);
         }
 
         for (let i = 1; i <= lastDay; i++) {
             this.props.date.setDate(i);
-            let day = this.props.date.getDate()
+            let day = this.props.date.getDate();
             currentMonthDays.push(day);
         }
 
